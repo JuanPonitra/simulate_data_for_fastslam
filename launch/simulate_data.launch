@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="simulate_data" type="simulate_data.py" name="data_sim" output="screen" />
+</launch>
