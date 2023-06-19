@@ -2,6 +2,7 @@
 
 import math
 import numpy as np
+import random
 import rospy
 from fiducial_msgs.msg import FiducialTransformArray, FiducialTransform
 from nav_msgs.msg import Odometry
@@ -33,6 +34,10 @@ def publish_data(filename, publish_frequency, landmarks, length):
             # Extract values from the line
             values = line.strip()[1:-1].split(',')
 
+            # Initialize variables with some noise
+            line_vel = random.uniform(-0.05, 0.05)
+            ang_vel = random.uniform(-0.05, 0.05)
+
             # Convert values to float
             x = float(values[0])
             y = float(values[1])
@@ -44,8 +49,8 @@ def publish_data(filename, publish_frequency, landmarks, length):
                 ang_vel = 0
                 flag = True
             else:
-                line_vel = abs((x-previous_pos[0])*publish_frequency + (y-previous_pos[1])*publish_frequency)
-                ang_vel = (theta - previous_pos[2])*publish_frequency
+                line_vel += abs((x-previous_pos[0])*publish_frequency + (y-previous_pos[1])*publish_frequency)
+                ang_vel += (theta - previous_pos[2])*publish_frequency
 
             # Create ROS message
             odom = Odometry()
