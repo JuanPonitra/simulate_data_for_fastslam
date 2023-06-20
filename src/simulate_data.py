@@ -27,7 +27,7 @@ def publish_data(filename, publish_frequency, landmarks, length):
 
         for line in file:
             # Skip lines until reaching the line with values
-            if line.startswith("# Fuck ton of points (x, y, theta)"):
+            if line.startswith("# A ton of points (x, y, theta)"):
                 break
 
         for line in file:

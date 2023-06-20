@@ -1,2 +1,3 @@
 # How to use this data:
-Run RMSE scripts using python3
+Move the results to the data directory and rename them accordingly.
+Files are overwritten everytime the fastslam package runs in simulation mode: rosrun fastslam -s fastslam_node.py

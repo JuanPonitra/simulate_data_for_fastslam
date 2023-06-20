@@ -2,7 +2,7 @@
 #
 # Considering x axis as theta = 0º
 #
-# Fuck ton of points (x, y, theta)
+# A ton of points (x, y, theta)
 (0.8, 0.8, 0)
 (0.8, 0.8, 0)
 (0.9, 0.8, 0)
